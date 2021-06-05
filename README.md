@@ -1,6 +1,6 @@
 # How to Build a Distributed Big Data Pipeline Using Kafka, Cassandra, and Jupyter Lab with Dockerv + FAKER API
 
-This is the solution to Assignment of Big Data for Engineering course.
+This is the guiding for task 2 in Assignment 2 of Big Data for Engineering course.
 
 You can use the resources in this github to deploy an end-to-end data pipeline on your local computer using Docker containerized Kafka (data streaming), Cassandra (NoSQL database) and Jupyter Lab (data analysis Visualization).
 
