@@ -53,7 +53,7 @@ $ docker-compose -f owm-producer/docker-compose.yml --env-file .env up -d     # 
 $ docker-compose -f twitter-producer/docker-compose.yml --env-file .env up -d # start the producer for twitter
 $ docker-compose -f faker-producer/docker-compose.yml --env-file .env up -d # start the producer for faker
 ```
-## Starting Twitter classifier (plus Weather consumer)
+## Starting Twitter classifier (plus Weather and Faker consumer)
 
 Start consumers:
 ```bash
