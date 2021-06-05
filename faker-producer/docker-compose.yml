@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  fakerapi:
+    container_name: fakerapi
+    build: .
+    environment:
+      KAFKA_BROKER_URL: broker:9092
+      TOPIC_NAME: "${FAKER_TOPIC}"
+
+networks:
+  default:
+    external:
+      name: kafka-network
