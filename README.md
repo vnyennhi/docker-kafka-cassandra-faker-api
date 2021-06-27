@@ -1,4 +1,6 @@
-# How to Build a Distributed Big Data Pipeline Using Kafka, Cassandra, and Jupyter Lab with Docker
+# How to Build a Distributed Big Data Pipeline Using Kafka, Cassandra, and Jupyter Lab with Docker plus Faker API
+
+This is solution for Tutorial 4. You are recommended to follow step-by-step guide in class for better understanding.
 
 You can use the resources in this github to deploy an end-to-end data pipeline on your local computer using Docker containerized Kafka (data streaming), Cassandra (NoSQL database) and Jupyter Lab (data analysis Visualization).
 
@@ -47,13 +49,14 @@ IMPORTANT: There is a bug that I don't know how to fix yet. You have to manually
 
 ## Starting Producers
 ```bash
+$ docker-compose -f faker-producer/docker-compose.yml up -d     # start the producer to generate faker data
 $ docker-compose -f owm-producer/docker-compose.yml up -d     # start the producer that retrieves open weather map
 $ docker-compose -f twitter-producer/docker-compose.yml up # start the producer for twitter
 ```
 
 There is a known issue with reading the tweets and the bug fix will be releashed in Tweetpy 4.0 (details here: https://github.com/tweepy/tweepy/issues/237). Therefore, with the Twitter producer, we will attach the bash to monitor the log to see the magic and retry if the service is stopped. 
 
-## Starting Twitter classifier (plus Weather consumer)
+## Starting Twitter classifier (plus Weather and Faker consumer)
 
 There is another catch: We cannot build the Docker file for the consumer directly with the docker-compose.yml (We can do so with all other yml files, just not this one -.-). So we have to manually go inside the folder "consumers" to build the Docker using command:
 
@@ -81,6 +84,8 @@ cqlsh> use kafkapipeline; #keyspace name
 cqlsh:kafkapipeline> select * from twitterdata;
 
 cqlsh:kafkapipeline> select * from weatherreport;
+
+cqlsh:kafkapipeline> select * from fakerdata;
 ```
 
 And that's it! you should be seeing records coming in to Cassandra. Feel free to play around with it by bringing down containers and then up again to see the magic of fault tolerance!
@@ -104,6 +109,8 @@ $ docker-compose -f data-vis/docker-compose.yml down # stop visualization node
 $ docker-compose -f consumers/docker-compose.yml down          # stop the consumers
 
 $ docker-compose -f owm-producer/docker-compose.yml down       # stop open weather map producer
+
+$ docker-compose -f faker-producer/docker-compose.yml down       # stop faker producer
 
 $ docker-compose -f twitter-producer/docker-compose.yml down   # stop twitter producer
 
