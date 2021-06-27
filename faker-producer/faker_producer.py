@@ -1,4 +1,4 @@
-"""Produce openweathermap content to 'weather' kafka topic."""
+"""Produce openweathermap content to 'faker' kafka topic."""
 import asyncio
 import configparser
 import os
