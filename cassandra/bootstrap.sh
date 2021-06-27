@@ -28,7 +28,7 @@ if [ "$1" = 'dse' -a "$2" = 'cassandra' ]; then
     cqlsh -f /opt/scripts/keyspace.cql 127.0.0.1 9042
 
     # Create the schema if necessary
-    echo '=> Ensuring schema is created'
+    echo '=> Ensuring the new schema is created'
     cqlsh -f /opt/scripts/schema.cql -k kafkapipeline 127.0.0.1 9042
 
     # Shutdown Cassandra after bootstrapping to allow the entrypoint script to start normally

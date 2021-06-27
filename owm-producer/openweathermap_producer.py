@@ -31,13 +31,12 @@ async def get_weather(city):
 
 
 def run():
-    kafkaurl = KAFKA_BROKER_URL
-    locations = ["New York"]
+    locations = ["Vancouver"]
     iterator = 0
     repeat_request = SLEEP_TIME / len(locations)
-    print("Setting up Weather producer at {}".format(kafkaurl))
+    print("Setting up Weather producer at {}".format(KAFKA_BROKER_URL))
     producer = KafkaProducer(
-        bootstrap_servers=kafkaurl,
+        bootstrap_servers=[KAFKA_BROKER_URL],
         # Encode all values as JSON
         value_serializer=lambda x: x.encode('ascii'),
     )

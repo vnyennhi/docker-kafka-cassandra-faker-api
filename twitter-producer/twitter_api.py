@@ -5,7 +5,7 @@ import tweepy
 from kafka import KafkaProducer
 import configparser
 
-TWIITER_API_GEOBOX_FILTER = [-74.59632543183312, 40.39556816601683, -73.37684307817638, 41.03778178523373]
+TWIITER_API_GEOBOX_FILTER = [-123.371556, 49.009125, -122.264683, 49.375294]
 TWITTER_API_LANGS_FILTER = ['en']
 
 # Twitter API Keys
@@ -22,11 +22,11 @@ consumer_secret = api_credential['consumer_secret']
 KAFKA_BROKER_URL = os.environ.get("KAFKA_BROKER_URL") if os.environ.get(
     "KAFKA_BROKER_URL") else 'localhost:9092'
 TOPIC_NAME = os.environ.get("TOPIC_NAME") if os.environ.get(
-    "TOPIC_NAME") else 'from_twitter'
+    "TOPIC_NAME") else 'twitter'
 
 # a static location is used for now as a
 # geolocation filter is imposed on twitter API
-TWEET_LOCATION = 'NewYork'
+TWEET_LOCATION = 'MetroVancouver'
 
 
 class stream_listener(tweepy.StreamListener):

@@ -4,10 +4,13 @@ import configparser
 import os
 import time
 from collections import namedtuple
-from dataprep.connector import connect
 from kafka import KafkaProducer
-import json
 from faker import Faker
+import json
+
+KAFKA_BROKER_URL = os.environ.get("KAFKA_BROKER_URL")
+TOPIC_NAME = os.environ.get("TOPIC_NAME")
+SLEEP_TIME = int(os.environ.get("SLEEP_TIME", 5))
 
 fake = Faker()
 
@@ -18,27 +21,22 @@ def get_registered_user():
         "year": fake.year()
     }
 
-KAFKA_BROKER_URL = os.environ.get("KAFKA_BROKER_URL")
-TOPIC_NAME = os.environ.get("TOPIC_NAME")
-
-
 def run():
-    kafkaurl = KAFKA_BROKER_URL
     iterator = 0
-    print("Setting up Faker producer at {}".format(kafkaurl))
+    print("Setting up Faker producer at {}".format(KAFKA_BROKER_URL))
     producer = KafkaProducer(
-        bootstrap_servers=kafkaurl,
+        bootstrap_servers=[KAFKA_BROKER_URL],
         # Encode all values as JSON
-        value_serializer=lambda x: json.dumps(x).encode('utf8'),
+        value_serializer=lambda x: json.dumps(x).encode('utf-8'),
     )
 
     while True:
-        registered_user = get_registered_user()
+        sendit = get_registered_user()
         # adding prints for debugging in logs
         print("Sending new faker data iteration - {}".format(iterator))
-        producer.send(TOPIC_NAME, value=registered_user)
-        print("New data sent")
-        time.sleep(5)
+        producer.send(TOPIC_NAME, value=sendit)
+        print("New faker data sent")
+        time.sleep(SLEEP_TIME)
         print("Waking up!")
         iterator += 1
 

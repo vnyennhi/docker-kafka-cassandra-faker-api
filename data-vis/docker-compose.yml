@@ -7,11 +7,11 @@ services:
     build:
       context: .
     environment:
-      CASSANDRA_HOST: ${CASSANDRA_HOST}
-      CASSANDRA_KEYSPACE: ${CASSANDRA_KEYSPACE}
-      WEATHER_TABLE: ${WEATHER_TABLE}
-      TWITTER_TABLE: ${TWITTER_TABLE}
-      FAKER_TABLE: ${FAKER_TABLE}
+      CASSANDRA_HOST: cassandradb
+      CASSANDRA_KEYSPACE: kafkapipeline
+      WEATHER_TABLE: weatherreport
+      TWITTER_TABLE: twitterdata
+      FAKER_TABLE: fakerdata
     ports:
         - 8888:8888
     volumes:

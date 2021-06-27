@@ -1,12 +1,13 @@
 version: '3'
 
 services:
-  fakerapi:
-    container_name: fakerapi
+  faker:
+    container_name: faker
     build: .
     environment:
       KAFKA_BROKER_URL: broker:9092
-      TOPIC_NAME: "${FAKER_TOPIC}"
+      TOPIC_NAME: faker
+      SLEEP_TIME: 5
 
 networks:
   default:

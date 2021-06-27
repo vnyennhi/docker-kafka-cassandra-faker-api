@@ -3,8 +3,9 @@ FROM cassandra
 WORKDIR /opt/scripts
 
 # Copy schema files into /opt/scripts
-COPY [ "schema.cql", "keyspace.cql" , "bootstrap.sh", "wait-for-it.sh" , "./" ]
+COPY ["schema.cql", "schema-faker.cql", "keyspace.cql" , "bootstrap.sh", "wait-for-it.sh" , "./" ]
 RUN chmod +x /opt/scripts/*
+
 # Set the entrypoint to the bootstrap script
 ENTRYPOINT [ "/opt/scripts/bootstrap.sh" ]
 

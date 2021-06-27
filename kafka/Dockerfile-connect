@@ -9,8 +9,9 @@ ENV CONNECT_PLUGIN_PATH="/usr/share/java,/datastax-connector/kafka-connect-cassa
 
 WORKDIR /usr/app
 
-COPY connect/ .
+COPY connect-faker/ .
+USER root
 RUN chmod +x *.sh
 
 CMD [ "/bin/bash", "-c", "echo \"Launching Kafka Connect worker\" & \
-        /etc/confluent/docker/run & /usr/app/start-and-wait.sh"]
+        /etc/confluent/docker/run & /usr/app/start-and-wait-faker.sh"]
