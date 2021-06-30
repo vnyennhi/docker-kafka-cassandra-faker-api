@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS weatherreport (
+CREATE TABLE weatherreport (
   forecastdate TIMESTAMP,
   location TEXT,
   description TEXT,
@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS weatherreport (
   PRIMARY KEY (location, forecastdate)
 );
 
-CREATE TABLE IF NOT EXISTS twitterdata (
+CREATE TABLE twitterdata (
   tweet_date TIMESTAMP,
   location TEXT,
   tweet TEXT,

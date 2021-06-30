@@ -41,13 +41,16 @@ curl -s \
     "topic.weather.kafkapipeline.weatherreport.consistencyLevel": "LOCAL_QUORUM"
   }
 }'
+echo "Done."
+
+
 echo "Starting Faker Sink"
 curl -s \
      -X POST http://localhost:8083/connectors \
      -H "Content-Type: application/json" \
      -d '{
   "name": "fakersink",
-  "config":{
+  "config": {
     "connector.class": "com.datastax.oss.kafka.sink.CassandraSinkConnector",
     "value.converter": "org.apache.kafka.connect.json.JsonConverter",
     "value.converter.schemas.enable": "false",  

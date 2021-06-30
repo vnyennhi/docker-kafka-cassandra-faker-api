@@ -30,6 +30,7 @@ services:
       CASSANDRA_KEYSPACE: kafkapipeline
     command: ["python", "-u","python/faker_consumer.py"]
 
+
 networks:
   default:
     external:
