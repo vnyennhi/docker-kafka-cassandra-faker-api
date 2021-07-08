@@ -57,7 +57,7 @@ DELETE teams[2009] FROM cycling.cyclist_teams WHERE id=5b6962dd-3f90-4c93-8f61-e
 
 Delete multiple items from the map
 ```
-UPDATE cycling.cyclist_teams SET teams = teams - {'2013','2014'} WHERE id=5b6962dd-3f90-4c93-8f61-eabfa4a803e2;
+UPDATE cycling.cyclist_teams SET teams = teams - {2013,2014} WHERE id=5b6962dd-3f90-4c93-8f61-eabfa4a803e2;
 ```
 
 ## More on other data types: set, list, tuples or user defined type
