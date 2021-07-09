@@ -9,7 +9,9 @@ Substantial changes and bug fixes have been made. Tested on Windows 10.
 
 
 Tutorial videos:
+
 https://youtu.be/_lJWsgOoOjM
+
 https://youtu.be/TSJ_9ykhU1g
 
 
