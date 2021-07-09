@@ -7,6 +7,12 @@ You can use the resources in this github to deploy an end-to-end data pipeline o
 This bases on the repo https://github.com/salcaino/sfucmpt733/tree/main/foobar-kafka
 Substantial changes and bug fixes have been made. Tested on Windows 10. 
 
+
+Tutorial videos:
+https://youtu.be/_lJWsgOoOjM
+https://youtu.be/TSJ_9ykhU1g
+
+
 # Quickstart instructions
 
 You need to apply for some APIs to use with this. The APIs might take days for application to be granted access. Sample API keys are given, but it can be blocked if too many users are running this.
