@@ -1,5 +1,5 @@
 USE kafkapipeline;
-CREATE TABLE IF NOT EXISTS fakerdata (
+CREATE TABLE IF NOT EXISTS kafkapipeline.fakerdata (
   name TEXT,
   address TEXT,
   year INT,

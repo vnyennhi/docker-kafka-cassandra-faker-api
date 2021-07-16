@@ -43,7 +43,6 @@ curl -s \
 }'
 echo "Done."
 
-
 echo "Starting Faker Sink"
 curl -s \
      -X POST http://localhost:8083/connectors \

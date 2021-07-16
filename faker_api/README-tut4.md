@@ -14,7 +14,7 @@ Add these to a new schema file "cassandra/schema-faker.cql"
 
 ```
 USE kafkapipeline;
-CREATE TABLE IF NOT EXISTS kafkapipeline.fakerdata (
+CREATE TABLE IF NOT EXISTS fakerdata (
   name TEXT,
   address TEXT,
   year INT,

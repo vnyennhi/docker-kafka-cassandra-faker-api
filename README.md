@@ -107,6 +107,12 @@ Run the following command the go to http://localhost:8888 and run the visualizat
 docker-compose -f data-vis/docker-compose.yml up -d
 ```
 
+Or you can try the Dash version
+
+```
+docker-compose -f dashboard/docker-compose.yml up -d
+```
+
 ## Teardown
 
 To stop all running kakfa cluster services
